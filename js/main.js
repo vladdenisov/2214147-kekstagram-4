@@ -14,6 +14,14 @@ function generateData() {
 
   const result = [];
 
+  const comments = [
+    'Посмотрите какая красота!',
+    'Ваууу!!',
+    'Блин, какая красота!',
+    'Супер фотка получилась!',
+    'Ну как прикольно вышло'
+  ];
+
   for (let i = 0; i < 25; i++) {
     let id = getRandomPositiveInteger(1, 25);
 
@@ -26,7 +34,7 @@ function generateData() {
     result.push({
       id,
       url: `photos/${id}.jpg`,
-      description: 'Test',
+      description: comments[getRandomPositiveInteger(0, comments.length - 1)],
       likes: getRandomPositiveInteger(15, 200),
       comments: getRandomPositiveInteger(0, 200)
     });
