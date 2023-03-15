@@ -1,5 +1,3 @@
-import { generateData } from './generateData.js';
-
 const createPictureFromData = (data) => {
   const a = document.createElement('a');
   a.setAttribute('href', '#');
