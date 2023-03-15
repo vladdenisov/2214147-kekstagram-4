@@ -1,7 +1,5 @@
 import { getRandomPositiveInteger } from './util.js';
-function generateData() {
-  const usedIds = [];
-
+export const generateData = (length = 25) => {
   const result = [];
 
   const comments = [
@@ -12,14 +10,11 @@ function generateData() {
     'Ну как прикольно вышло'
   ];
 
-  for (let i = 0; i < 25; i++) {
-    let id = getRandomPositiveInteger(1, 25);
-
-    while (id in usedIds) {
+  for (let i = 1; i < length + 1; i++) {
+    let id = i;
+    if (i > 25) {
       id = getRandomPositiveInteger(1, 25);
     }
-
-    usedIds.push(id);
 
     result.push({
       id,
@@ -30,6 +25,4 @@ function generateData() {
     });
   }
   return result;
-}
-
-export {generateData};
+};
