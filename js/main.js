@@ -1,3 +1,4 @@
+import { displayData } from './displayData.js';
 import { generateData } from './generateData.js';
 
-generateData();
+displayData(generateData(26));
