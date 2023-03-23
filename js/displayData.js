@@ -1,43 +1,52 @@
-const createPictureFromData = (data) => {
-  const a = document.createElement('a');
-  a.setAttribute('href', '#');
-  a.classList.add('picture');
+const createImagePreview = (url, description) => {
+  const image = document.createElement('img');
+  image.classList.add('picture__img');
+  image.setAttribute('src', url);
+  image.setAttribute('width', 182);
+  image.setAttribute('height', 182);
+  image.setAttribute('alt', description);
+  return image;
+};
 
-  const img = document.createElement('img');
-  img.classList.add('picture__img');
-  img.setAttribute('src', data.url);
-  img.setAttribute('width', 182);
-  img.setAttribute('height', 182);
-  img.setAttribute('alt', data.description);
+const createImageComments = (comments) => {
+  const imageComments = document.createElement('span');
+  imageComments.classList.add('picture__comments');
+  imageComments.append(comments);
+  return imageComments;
+};
 
-  const p = document.createElement('p');
-  p.classList.add('picture__info');
+const createImageLikes = (likes) => {
+  const imageLikes = document.createElement('span');
+  imageLikes.classList.add('picture__likes');
+  imageLikes.append(likes);
+  return imageLikes;
+};
 
-  const commentsSpan = document.createElement('span');
-  commentsSpan.classList.add('picture__comments');
-  commentsSpan.append(data.comments);
+const createImageInfo = (comments, likes) => {
+  const imageInfoContainer = document.createElement('p');
+  imageInfoContainer.classList.add('picture__info');
 
-  const likesSpan = document.createElement('span');
-  likesSpan.classList.add('picture__likes');
-  likesSpan.append(data.likes);
+  imageInfoContainer.append(createImageComments(comments), createImageLikes(likes));
+  return imageInfoContainer;
+};
 
-  p.append(commentsSpan, likesSpan);
 
-  a.append(img, p);
+const createPictureFromData = ({url, description, comments, likes}) => {
+  const picture = document.createElement('a');
+  picture.setAttribute('href', '#');
+  picture.classList.add('picture');
 
-  return a;
+  picture.append(createImagePreview(url, description), createImageInfo(comments, likes));
+  return picture;
 };
 
 
 export const displayData = (data) => {
   const resultFragment = new DocumentFragment();
 
-
-  data.forEach((picture) => {
-    resultFragment.appendChild(createPictureFromData(picture));
-  });
+  const children = data.map((picture) => createPictureFromData(picture));
+  resultFragment.append(...children);
 
   const container = document.querySelector('.pictures');
-
   container.appendChild(resultFragment);
 };
