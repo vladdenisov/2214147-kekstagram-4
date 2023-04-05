@@ -24,7 +24,7 @@ const showSuccessMessage = () => {
 };
 
 
-const isHashtagValid = (value) => value.length <= 20 && !HashtagRegex.test(value)
+const isHashtagValid = (value) => value.length <= 20 && !HashtagRegex.test(value);
 
 export const setupFormValidation = () => {
   const form = document.querySelector('#upload-select-image');
