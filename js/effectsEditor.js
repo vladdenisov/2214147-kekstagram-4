@@ -6,8 +6,6 @@ const getImagePreview = () => document.querySelector('.img-upload__preview > img
 
 const getLevelInput = () => document.querySelector('.effect-level__value');
 
-const getRadioButtons = () => document.querySelectorAll('.effects__radio');
-
 const getFiltersContainer = () => document.querySelector('.effects__list');
 
 const changeImageScale = (toBigger = true, imagePreview) => {
