@@ -8,3 +8,6 @@ export const getRandomPositiveInteger = (a, b) => {
 };
 
 export const checkStringLength = (string, length) => string.length <= length;
+
+export const HashtagRegex = /\W(\#[а-яa-z]+\b)(?!;)/gmi;
+
