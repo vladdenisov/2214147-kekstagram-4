@@ -4,6 +4,10 @@ const getCurrentFilter = () => document.querySelector('input[name="effect"]:chec
 
 const getImagePreview = () => document.querySelector('.img-upload__preview > img');
 
+const getLevelInput = () => document.querySelector('.effect-level__value');
+
+const getRadioButtons = () => document.querySelectorAll('.effects__radio');
+
 const changeImageScale = (toBigger = true, imagePreview) => {
   const control = document.querySelector('.scale__control--value');
 
@@ -143,7 +147,7 @@ export const addEffectsListeners = () => {
     levelInput.value = value;
   });
 
-  const radioButtons = document.querySelectorAll('.effects__radio');
+  const radioButtons = getRadioButtons();
   radioButtons.forEach((button) => {
     button.addEventListener('click', radioButtonClickListener);
   });
@@ -153,7 +157,8 @@ export const removeEffectsListeners = () => {
   const imagePreview = document.querySelector('.img-upload__preview > img');
   document.querySelector('.scale__control--smaller').removeEventListener('click', () => changeImageScale(false, imagePreview));
   document.querySelector('.scale__control--bigger').removeEventListener('click', () => changeImageScale(true, imagePreview));
-  const radioButtons = document.querySelectorAll('.effects__radio');
+  const radioButtons = getRadioButtons();
+  getLevelInput().value = '';
   radioButtons.forEach((button) => {
     button.removeEventListener('click', radioButtonClickListener);
   });
