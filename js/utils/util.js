@@ -11,3 +11,5 @@ export const checkStringLength = (string, length) => string.length <= length;
 
 export const HashtagRegex = /\W(#[а-яa-z]+\b)(?!;)/gmi;
 
+export const isHashtagValid = (value) => value.length <= 20 && !HashtagRegex.test(value);
+

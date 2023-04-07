@@ -1,10 +1,9 @@
 import { displayData } from './displayData.js';
-import { generateData } from './generateData.js';
-import { setupModal } from './imageModal.js';
-import { setupFormValidation } from './formValidation.js';
+import { setupModal } from './form/imageModal.js';
+import { setupFormValidation } from './form/formValidation.js';
+import { fetchData } from './utils/network.js';
 
-displayData(generateData(26));
-
+fetchData().then(displayData);
 
 setupFormValidation();
 
