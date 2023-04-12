@@ -6,6 +6,7 @@ export const closeModal = (reset = true) => {
     const img = document.querySelector('.img-upload__preview > img');
     img.classList.remove(...img.classList);
     img.classList.add('effects__preview--none');
+    img.style.transform = '';
     removeEffectsListeners();
   }
   document.querySelector('body').classList.remove('modal-open');
