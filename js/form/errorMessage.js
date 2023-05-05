@@ -1,4 +1,4 @@
-const hideErrorMessage =() => {
+const hideErrorMessage = () => {
   const successMessage = document.querySelector('.error');
   document.querySelector('body').removeChild(successMessage);
   document.querySelector('.img-upload__overlay').classList.remove('hidden');
