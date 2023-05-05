@@ -1,3 +1,5 @@
+// Не использовал template, но воссоздал его структуру для практики
+
 const createImagePreview = (url, description) => {
   const image = document.createElement('img');
   image.classList.add('picture__img');
